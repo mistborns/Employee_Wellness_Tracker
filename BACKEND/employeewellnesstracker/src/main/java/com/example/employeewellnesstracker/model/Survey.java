@@ -1,5 +1,6 @@
 package com.example.employeewellnesstracker.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -27,5 +28,10 @@ public class Survey {
     @OneToMany(mappedBy = "survey", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference
     private List<Question> questions;
+
+    @OneToMany(mappedBy = "survey", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnore
+    private List<SurveyResponse> surveyResponses;
+
 
 }

@@ -27,12 +27,24 @@ public class EmployeeService {
 
 
     public Employee updateEmployee(Long id, Employee updatedEmployee){
-        Employee employee = employeeRepository.findById(id).orElseThrow(() -> new RuntimeException("user not found"));
-        employee.setName(updatedEmployee.getName());
-        employee.setEmail(updatedEmployee.getEmail());
-        employee.setDepartment(updatedEmployee.getDepartment());
-        return employeeRepository.save(employee);
+        return employeeRepository.findById(id).map(employee -> {
+                    if (updatedEmployee.getName() != null) {
+                        employee.setName(updatedEmployee.getName());
+                    }
+                    if (updatedEmployee.getEmail() != null) {
+                        employee.setEmail(updatedEmployee.getEmail());
+                    }
+                    if (updatedEmployee.getDepartment() != null) {
+                        employee.setDepartment(updatedEmployee.getDepartment());
+                    }
+                    if (updatedEmployee.getPassword() != null && !updatedEmployee.getPassword().isEmpty()) {
+                        employee.setPassword(passwordEncoder.encode(updatedEmployee.getPassword()));
+                    }
+                    return employeeRepository.save(employee);
+                })
+                .orElseThrow(() -> new RuntimeException("Employee not found"));
     }
+
 
     public Employee promoteEmployee(Long id){
         Employee employee = employeeRepository.findById(id).orElse(null);

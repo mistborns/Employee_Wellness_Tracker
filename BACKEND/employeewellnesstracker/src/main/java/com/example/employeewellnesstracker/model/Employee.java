@@ -1,7 +1,10 @@
 package com.example.employeewellnesstracker.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.List;
 
 @Entity
 @Data
@@ -26,4 +29,8 @@ public class Employee {
 
     @Column(nullable = false)
     private String password;
+
+    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnore
+    private List<SurveyResponse> surveyResponses;
 }

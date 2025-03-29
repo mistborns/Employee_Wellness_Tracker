@@ -1,5 +1,6 @@
 package com.example.employeewellnesstracker.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
@@ -17,16 +18,17 @@ public class SurveyResponse {
 
     @ManyToOne
     @JoinColumn(name = "employee_id", nullable = false)
-    @JsonIgnore
+    @JsonBackReference
     private Employee employee;
 
     @ManyToOne
     @JoinColumn(name = "question_id", nullable = false)
+    @JsonBackReference
     private Question question;
 
     @ManyToOne
     @JoinColumn(name = "survey_id", nullable = false)
-    @JsonIgnore
+    @JsonBackReference
     private Survey survey;
 
     @Column(nullable = false)

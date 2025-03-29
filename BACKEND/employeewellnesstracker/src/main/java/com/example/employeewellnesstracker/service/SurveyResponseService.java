@@ -26,23 +26,7 @@ public class SurveyResponseService {
     @Autowired
     private SurveyRepository surveyRepository;
 
-    // Save a new response
-//    public SurveyResponse submitResponse(QuestionResponseDTO responseDTO) {
-//        Employee employee = employeeRepository.findById(responseDTO.getEmployeeId())
-//                .orElseThrow(() -> new RuntimeException("Employee not found"));
-//        Survey survey = surveyRepository.findById(responseDTO.getSurveyId())
-//                .orElseThrow(() -> new RuntimeException("Survey not found"));
-//        Question question = questionRepository.findById(responseDTO.getQuestionId())
-//                .orElseThrow(() -> new RuntimeException("Question not found"));
-//
-//        SurveyResponse surveyResponse = new SurveyResponse();
-//        surveyResponse.setEmployee(employee);
-//        surveyResponse.setSurvey(survey);
-//        surveyResponse.setQuestion(question);
-//        surveyResponse.setResponse(responseDTO.getResponse());
-//
-//        return surveyResponseRepository.save(surveyResponse);
-//    }
+
     public List<SurveyResponse> submitResponses(SurveyResponseBatchDTO responseBatchDTO) {
         List<SurveyResponse> responseList = new ArrayList<>();
 
