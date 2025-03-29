@@ -34,6 +34,15 @@ public class EmployeeService {
         return employeeRepository.save(employee);
     }
 
+    public Employee promoteEmployee(Long id){
+        Employee employee = employeeRepository.findById(id).orElse(null);
+        if (employee == null || employee.getIsAdmin()) {
+            return null;//check if exists or is an admin
+        }
+        employee.setIsAdmin(true);
+        return employeeRepository.save(employee);
+    }
+
 
     public Employee getEmployeeByID(Long id){
         return employeeRepository.findById(id).orElseThrow(() -> new RuntimeException("user not found"));
@@ -51,8 +60,12 @@ public class EmployeeService {
         return employeeRepository.findByDepartment(department);
     }
 
-    public void deleteEmployee(Long id){
+    public boolean deleteEmployee(Long id){
+        if(!employeeRepository.existsById(id)){
+            return false;
+        }
         employeeRepository.deleteById(id);
+        return true;
     }
 
     //checks hashed and raw password
