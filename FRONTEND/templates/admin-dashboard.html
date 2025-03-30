@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="/css/shared-styles.css">
+    <link rel="stylesheet" href="/css/admin-dashboard.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="navbar-brand">Employee Wellness Tracker</div>
+            <div class="dropdown">
+                <button id="adminButton" class="dropdown-button">Admin Name ▼</button>
+                <div id="dropdownContent" class="dropdown-content">
+                    <a href="profile.html">Profile</a>
+                    <a href="#" id="logoutButton">Logout</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="logo">Admin Panel</div>
+        <div class="menu-item active"><a href="admin-dashboard.html">Dashboard</a></div>
+        <div class="menu-item"><a href="reports.html">Reports</a></div>
+        <div class="menu-item"><a href="create-survey.html">Create Survey</a></div>
+        <div class="menu-item"><a href="view-surveys.html">View Surveys</a></div>
+    </div>
+
+   
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="header">
+            <div class="content-title">Employee List</div>
+        </div>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Department</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="employeeTable">
+                    <!-- Employee rows -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+     <!-- Employee Edit Modal -->
+     <div class="modal" id="editEmployeeModal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Edit Employee</h2>
+            <label for="editName">Name:</label>
+            <input type="text" id="editName" placeholder="Enter new name">
+
+            <label for="editEmail">Email:</label>
+            <input type="email" id="editEmail" placeholder="Enter new email">
+
+            <label for="editDepartment">Department:</label>
+            <input type="text" id="editDepartment" placeholder="Enter new department">
+
+            <button id="saveEdit">Save</button>
+        </div>
+    </div>
+
+    <script src="/js/admin-dashboard.js"></script>
+</body>
+</html>

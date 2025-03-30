@@ -1,0 +1,148 @@
+:root {
+    --navbar-height: 60px;
+    --primary: #4a6cf7;
+    --dark: #343a40;
+    --background-light: #f8f9fa;
+    --font-color-dark: #343a40;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--background-light);
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--navbar-height);
+    background-color: var(--dark);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.navbar-brand {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.content {
+    margin-top: var(--navbar-height);
+    padding: 20px;
+}
+
+h1 {
+    font-size: 24px;
+    color: var(--font-color-dark);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#responsesContainer {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    margin: 20px auto;
+    max-width: 800px;
+}
+
+.response-item {
+    margin-bottom: 15px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.response-item h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: var(--font-color-dark);
+}
+
+.response-item p {
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+button {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 0.9em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: #3755d6;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    min-width: 150px;
+    overflow: hidden;
+    display: hidden;
+}
+
+.dropdown-content a {
+    color: #343a40;
+    text-decoration: none;
+    padding: 10px 15px;
+    display: block;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-content a:hover {
+    background-color: #4a6cf7;
+    color: white;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.navbar-buttons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.navbar {
+    z-index: 999;
+}
+
+@media (max-width: 768px) {
+    #responsesContainer {
+        padding: 15px;
+    }
+
+    .response-item {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+}

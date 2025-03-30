@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Dashboard</title>
+    <!-- <link rel="stylesheet" href="/css/shared-styles.css"> -->
+    <link rel="stylesheet" href="/css/employee-dashboard.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <header>
+        <nav class="navbar">
+            <div class="navbar-brand">Employee Dashboard</div>
+            <div class="dropdown">
+                <button id="employeeNameButton" class="dropdown-button">John Doe ▼</button>
+                <div id="dropdownContent" class="dropdown-content">
+                    <a href="profile.html">Profile</a>
+                    <a href="#" id="logoutButton">Logout</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="dashboard">
+            <section class="active-surveys">
+                <h2>Active Surveys</h2>
+                <div id="activeSurveysContainer" class="surveys-container"></div>
+            </section>
+            <section class="response-archives">
+                <h2>Response Archives</h2>
+                <div id="responseArchivesContainer" class="responses-container"></div>
+            </section>
+        </div>
+    </div>
+
+    <script src="/js/employee-dashboard.js"></script>
+</body>
+</html>

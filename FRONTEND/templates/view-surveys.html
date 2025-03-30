@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Surveys</title>
+    <link rel="stylesheet" href="/css/shared-styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="navbar-brand">Employee Wellness Tracker</div>
+            <div class="dropdown">
+                <button id="adminButton" class="dropdown-button">Admin Name ▼</button>
+                <div id="dropdownContent" class="dropdown-content">
+                    <a href="profile.html">Profile</a>
+                    <a href="#" id="logoutButton">Logout</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="logo">Admin Panel</div>
+        <div class="menu-item"><a href="admin-dashboard.html">Dashboard</a></div>
+        <div class="menu-item"><a href="reports.html">Reports</a></div>
+        <div class="menu-item"><a href="create-survey.html">Create Survey</a></div>
+        <div class="menu-item active"><a href="view-surveys.html">View Surveys</a></div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="header">
+            <div class="content-title">View Surveys</div>
+        </div>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="surveyTable">
+                    <!-- surveys -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="/js/view-surveys.js"></script>
+</body>
+</html>

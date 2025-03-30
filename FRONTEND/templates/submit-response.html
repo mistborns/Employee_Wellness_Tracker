@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Survey Response</title>
+    <link rel="stylesheet" href="/css/submit-response.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <header>
+        <nav class="navbar">
+            <div class="navbar-brand">Survey Response</div>
+            <div class="navbar-buttons">
+                <div class="dropdown">
+                    <button id="userButton" class="dropdown-button">John Doe ▼</button>
+                    <div id="dropdownContent" class="dropdown-content">
+                        <a href="profile.html">Profile</a>
+                        <a href="#" id="logoutButton">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="content">
+        <h1 id="surveyTitle">Survey Title</h1>
+        <p id="surveyDescription">Survey Description</p>
+       
+        
+        
+        <form id="responseForm">
+            <div id="questionContainer">
+                <!-- Questions list -->
+            </div>
+            <div class="submit-section">
+                
+                <button type="submit" class="submit-btn">Submit Responses</button>
+            </div>
+        </form>
+    </main>
+
+    <script src="/js/submit-response.js"></script>
+</body>
+</html>

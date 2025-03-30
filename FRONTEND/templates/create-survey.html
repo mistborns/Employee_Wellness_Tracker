@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Survey</title>
+    <link rel="stylesheet" href="/css/shared-styles.css">
+    <link rel="stylesheet" href="/css/create-survey.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="navbar-brand">Employee Wellness Tracker</div>
+            <div class="dropdown">
+                <button id="adminButton" class="dropdown-button">Admin Name ▼</button>
+                <div id="dropdownContent" class="dropdown-content">
+                    <a href="profile.html">Profile</a>
+                    <a href="#" id="logoutButton">Logout</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="logo">Admin Panel</div>
+        <div class="menu-item"><a href="admin-dashboard.html">Dashboard</a></div>
+        <div class="menu-item"><a href="reports.html">Reports</a></div>
+        <div class="menu-item active"><a href="create-survey.html">Create Survey</a></div>
+        <div class="menu-item"><a href="view-surveys.html">View Surveys</a></div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="header">
+            <div class="content-title">Create Survey</div>
+        </div>
+        <!-- Survey Form -->
+        <div class="form-container">
+            <form id="createSurveyForm">
+                <div class="form-group">
+                    <label for="surveyTitle">Survey Title:</label>
+                    <input type="text" id="surveyTitle" name="surveyTitle" class="form-control" placeholder="Enter survey title" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="surveyDescription">Description:</label>
+                    <textarea id="surveyDescription" name="surveyDescription" class="form-control" placeholder="Enter survey description" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Questions:</label>
+                    <div id="questionsContainer" class="questions-container"></div>
+                    <button type="button" id="addQuestionButton" class="btn btn-success">Add Question</button>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Create Survey</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="/js/create-survey.js"></script>
+</body>
+</html>
