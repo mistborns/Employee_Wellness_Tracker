@@ -4,6 +4,7 @@ import com.example.employeewellnesstracker.dto.QuestionResponseDTO;
 import com.example.employeewellnesstracker.dto.SurveyResponseBatchDTO;
 import com.example.employeewellnesstracker.model.*;
 import com.example.employeewellnesstracker.repository.*;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -54,10 +55,10 @@ public class SurveyResponseService {
         return responseList;
     }
 
-    // Get all responses for a survey
-    public List<SurveyResponse> getResponsesBySurvey(Long surveyId) {
-        return surveyResponseRepository.findBySurveyId(surveyId);
-    }
+//    // Get all responses for a survey
+//    public List<SurveyResponse> getResponsesBySurvey(Long surveyId) {
+//        return surveyResponseRepository.findBySurveyId(surveyId);
+//    }
 
     public List<SurveyResponseBatchDTO> getResponsesGroupedBySurveys(Long employeeId) {
         // Fetch all responses for the employee
@@ -77,12 +78,14 @@ public class SurveyResponseService {
             batchDTO.setSurveyId(surveyId);
             batchDTO.setSurveyTitle(response.getSurvey().getTitle());
             batchDTO.setSurveyDescription(response.getSurvey().getDescription());
+            batchDTO.setEmployeeId(employeeId);
 
             // Map the question response to QuestionResponseDTO
             QuestionResponseDTO questionDTO = new QuestionResponseDTO();
             questionDTO.setQuestionId(response.getQuestion().getId());
             questionDTO.setQuestionText(response.getQuestion().getText());
             questionDTO.setResponse(response.getResponse());
+            questionDTO.setResponseId(response.getId());
 
             if (batchDTO.getResponseDTOList() == null) {
                 batchDTO.setResponseDTOList(new ArrayList<>());
@@ -108,5 +111,17 @@ public class SurveyResponseService {
                 })
                 .collect(Collectors.toList());
     }
+
+    // delete function
+    @Transactional
+    public void deleteResponsesBySurveyAndEmployee(Long surveyId, Long employeeId) {
+        List<SurveyResponse> responses = surveyResponseRepository.findBySurveyIdAndEmployeeId(surveyId, employeeId);
+
+        if (responses.isEmpty()) {
+            throw new IllegalArgumentException("No responses found for this survey and employee.");
+        }
+        surveyResponseRepository.deleteBySurveyIdAndEmployeeId(surveyId, employeeId);
+    }
+
 
 }

@@ -5,8 +5,12 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDateTime;
+import java.time.ZoneOffset;
+
 @Entity
 @Data
+@ToString(exclude = {"employee", "question", "survey"})
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "survey_responses")
@@ -18,22 +22,26 @@ public class SurveyResponse {
 
     @ManyToOne
     @JoinColumn(name = "employee_id", nullable = false)
-    @JsonBackReference
+    @JsonIgnore
     private Employee employee;
 
     @ManyToOne
     @JoinColumn(name = "question_id", nullable = false)
-    @JsonBackReference
+    @JsonIgnore
     private Question question;
 
     @ManyToOne
     @JoinColumn(name = "survey_id", nullable = false)
-    @JsonBackReference
+    @JsonIgnore
     private Survey survey;
 
     @Column(nullable = false)
     private String response;
 
-    @Column(nullable = false, updatable = false)
-    private Long timestamp = System.currentTimeMillis(); // Store response time
+    private LocalDateTime submittedAt;
+
+    @PrePersist
+    protected void onCreate() {
+        this.submittedAt = LocalDateTime.now(ZoneOffset.UTC);
+    }
 }

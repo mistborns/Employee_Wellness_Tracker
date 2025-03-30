@@ -33,4 +33,12 @@ public class Employee {
     @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnore
     private List<SurveyResponse> surveyResponses;
+
+    private String location;
+
+    @Override
+    public String toString() {
+        return "Employee{id=" + id + ", name='" + name + "', department='" + department + "'}";
+    }
+
 }

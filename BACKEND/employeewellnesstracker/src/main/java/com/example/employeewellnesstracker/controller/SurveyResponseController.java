@@ -24,10 +24,10 @@ public class SurveyResponseController {
         return ResponseEntity.ok(surveyResponseService.submitResponses(responseBatchDTO));
     }
 
-    @GetMapping("/survey/{surveyId}")
-    public List<SurveyResponse> getResponsesBySurvey(@PathVariable Long surveyId ) {
-        return surveyResponseService.getResponsesBySurvey(surveyId);
-    }
+//    @GetMapping("/survey/{surveyId}")
+//    public List<SurveyResponse> getResponsesBySurvey(@PathVariable Long surveyId ) {
+//        return surveyResponseService.getResponsesBySurvey(surveyId);
+//    }
 
     @GetMapping("/employee/{employeeId}")
     public ResponseEntity<List<SurveyResponseBatchDTO>> getResponsesGroupedBySurveys(@PathVariable Long employeeId) {
@@ -52,6 +52,15 @@ public class SurveyResponseController {
 
         return ResponseEntity.ok(responses);
     }
+
+    @DeleteMapping("/survey/{surveyId}/employee/{employeeId}")
+    public ResponseEntity<Void> deleteResponsesBySurveyAndEmployee(
+            @PathVariable Long surveyId, @PathVariable Long employeeId) {
+
+        surveyResponseService.deleteResponsesBySurveyAndEmployee(surveyId, employeeId);
+        return ResponseEntity.noContent().build(); // HTTP 204 No Content
+    }
+
 
 
 
