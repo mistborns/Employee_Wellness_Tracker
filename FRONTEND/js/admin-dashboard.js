@@ -3,11 +3,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const employeeTable = document.getElementById('employeeTable');
     const employeeId = sessionStorage.getItem('employeeId');
     const admin = sessionStorage.getItem('isAdmin');
+    const employeeName = sessionStorage.getItem('employeeName');
+    const adminButton = document.getElementById('adminButton');
+
+
     if (!employeeId || !admin) {
         alert('Employee ID not found. Please log in.');
         window.location.href = 'auth.html'; // Redirect {login check)}
         return;
     }
+
+    adminButton.innerHTML = `${employeeName}`;
+
 
     //  Employee List
     fetch(`${BASE_URL}/employees`)

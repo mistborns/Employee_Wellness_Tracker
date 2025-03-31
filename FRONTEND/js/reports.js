@@ -15,6 +15,9 @@ document.addEventListener("DOMContentLoaded", function() {
         fetch(`${BASE_URL}/reports`)
             .then(response => response.json())
             .then(data => {
+
+                data.reverse();//recent report on first 
+
                 reportList.innerHTML = "";
                 data.forEach(report => {
                     const row = document.createElement("tr");
@@ -94,4 +97,12 @@ document.addEventListener("DOMContentLoaded", function() {
     };
 
     loadReports();
+
+    const logoutButton = document.getElementById('logoutButton');
+    logoutButton.addEventListener('click', () => {
+        if (confirm('Are you sure you want to logout?')) {
+            sessionStorage.clear(); 
+            window.location.href = 'auth.html'; 
+        }
+    });
 });

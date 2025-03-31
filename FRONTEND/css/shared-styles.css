@@ -98,6 +98,7 @@ body {
 }
 
 /* Sidebar */
+
 .sidebar {
     width: var(--sidebar-width);
     background-color: var(--dark);
@@ -108,6 +109,7 @@ body {
     top: var(--navbar-height);
     left: 0;
     transition: all 0.3s;
+    z-index: 100;
 }
 
 .logo {
@@ -122,6 +124,27 @@ body {
     padding: 15px 20px;
     cursor: pointer;
     transition: all 0.3s;
+    color: white;  
+    font-size: 1.1em;
+    text-decoration: none; 
+}
+
+.menu-item:hover, .active {
+    background-color: var(--primary);
+    color: white;  
+}
+
+.menu-item span {
+    margin-left: 10px;
+}
+
+.sidebar a {
+    color: white;  
+    text-decoration: none;  
+}
+
+.sidebar a:hover {
+    color: white;  
 }
 
 .menu-item:hover, .active {

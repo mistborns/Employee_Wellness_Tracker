@@ -1,76 +1,195 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+/* General Styles */
+* {
     margin: 0;
-    padding: 20px;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.container {
-    width: 50%;
-    margin: auto;
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+:root {
+    --primary: #4a6cf7;
+    --secondary: #6c757d;
+    --success: #28a745;
+    --danger: #dc3545;
+    --light: #f8f9fa;
+    --dark: #343a40;
+    --sidebar-width: 250px;
+    --navbar-height: 60px;
 }
 
-h2 {
-    text-align: center;
-}
-
-form {
+body {
     display: flex;
-    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f5f7fb;
+    padding-top: var(--navbar-height);
 }
 
-label {
-    margin-top: 10px;
+/* Navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--navbar-height);
+    background-color: var(--dark);
+    color: white;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.navbar-brand {
+    font-size: 1.5em;
     font-weight: bold;
 }
 
-input, button {
-    margin-top: 5px;
-    padding: 8px;
-    font-size: 16px;
+.dropdown {
+    position: relative;
 }
 
-button {
-    background: blue;
+.dropdown-button {
+    background-color: var(--primary);
     color: white;
     border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 0.9em;
     cursor: pointer;
-    margin-top: 15px;
+    text-align: center;
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    transition: all 0.3s ease;
 }
 
-button:hover {
-    background: darkblue;
+.dropdown-button:hover {
+    background-color: #3755d6;
 }
 
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+    z-index: 1001;
+    min-width: 150px;
+}
+
+.dropdown-content a {
+    color: var(--dark);
+    text-decoration: none;
+    padding: 10px;
+    display: block;
+    font-size: 0.9em;
+}
+
+.dropdown-content a:hover {
+    background-color: var(--primary);
+    color: white;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Main Content */
+.container {
+    margin-left: 260px;
+    padding: 20px;
+    width: calc(100% - 260px);
+}
+
+h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--dark);
+    margin-bottom: 20px;
+}
+
+form {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+form label {
+    font-size: 1em;
+    color: var(--dark);
+    margin-bottom: 8px;
+    display: block;
+}
+
+form input[type="text"],
+form input[type="datetime-local"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1em;
+    margin-bottom: 15px;
+}
+
+form button {
+    background-color: var(--primary);
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    width: 100%;
+}
+
+form button:hover {
+    background-color: #3755d6;
+}
+
+/* Reports Table */
 table {
     width: 100%;
-    margin-top: 20px;
     border-collapse: collapse;
+    margin-top: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+thead {
+    background-color: #f8f9fa;
 }
 
 th, td {
-    padding: 10px;
-    border: 1px solid #ddd;
-    text-align: center;
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #e9ecef;
 }
 
 th {
-    background: #007bff;
-    color: white;
+    color: var(--dark);
+}
+
+td {
+    color: var(--secondary);
 }
 
 .download-btn {
-    background: green;
+    background-color: var(--primary);
     color: white;
-    padding: 5px;
+    padding: 8px 12px;
     border: none;
+    border-radius: 5px;
     cursor: pointer;
+    font-size: 0.9em;
 }
 
 .download-btn:hover {
-    background: darkgreen;
+    background-color: #3755d6;
 }

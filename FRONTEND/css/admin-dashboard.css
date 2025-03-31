@@ -4,6 +4,7 @@ body {
     align-items: center;
 }
 
+
 .modal {
     display: none;
     position: fixed;

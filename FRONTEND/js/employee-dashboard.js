@@ -1,7 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
     const BASE_URL = 'http://localhost:8080'; 
     const employeeId = sessionStorage.getItem('employeeId'); 
-
+    const employeeName = sessionStorage.getItem('employeeName');
+    const userButton = document.getElementById('userButton');
     const activeSurveysContainer = document.getElementById('activeSurveysContainer');
     const responseArchivesContainer = document.getElementById('responseArchivesContainer');
 
@@ -11,6 +12,9 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
     }
 
+    userButton.innerHTML = `${employeeName}`;
+
+    
     //logout button logic
     const logoutButton = document.getElementById('logoutButton');
     logoutButton.addEventListener('click', () => {

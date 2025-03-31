@@ -5,8 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Reports</title>
     <link rel="stylesheet" href="/css/reports.css">
+    <link rel="stylesheet" href="/css/shared-styles.css">
 </head>
 <body>
+    <header>
+        <nav class="navbar">
+            <div class="navbar-brand">Survey Responses</div>
+            <div class="navbar-buttons">
+                <div class="dropdown">
+                    <button id="userButton" class="dropdown-button">John Doe ▼</button>
+                    <div id="dropdownContent" class="dropdown-content">
+                        <a href="profile.html">Profile</a>
+                        <a href="#" id="logoutButton">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+     <!-- Sidebar -->
+     <div class="sidebar">
+        <div class="logo">Admin Panel</div>
+        <div class="menu-item"><a href="admin-dashboard.html">Dashboard</a></div>
+        <div class="menu-item active"><a href="reports.html">Reports</a></div>
+        <div class="menu-item"><a href="create-survey.html">Create Survey</a></div>
+        <div class="menu-item "><a href="view-surveys.html">View Surveys</a></div>
+    </div>
     <div class="container">
         <h2>Generate Employee Reports</h2>
         <form id="reportForm">
